@@ -13,10 +13,3 @@ app.use(cookieParser());
 
 let db;
 
-async function initialiseDB(){
-    try{
-        var connection = await mysql.createConnection({
-            
-        })
-    }
-}
