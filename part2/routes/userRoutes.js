@@ -63,7 +63,11 @@ router.post('/api/login', async(req, res) =>{
       [username, password]
     );
     if(users.length == 1){
-      const user= 
+      const user = users[0];
+      req.session.user = {
+        id: user.user_id,
+        username: 
+      }
     }
   }
 });
