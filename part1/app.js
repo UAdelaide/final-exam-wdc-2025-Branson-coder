@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
+const { hostname } = require('os');
 
 var app = express();
 
@@ -15,6 +16,8 @@ let db;
 
 (async () => {
     try{
-        const connection = await
+        const connection = await mysql.createConnection({
+            host
+        })
     }
 })
