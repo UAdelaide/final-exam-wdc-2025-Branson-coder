@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/api/login', async(req, res) => {
   const { username, password } = req.body;
-  console.log('Query result:', rows);
+  
   try{
     const [users] = await db.execute(
       `SELECT * FROM Users WHERE username = ? AND password_hash = ?`,
