@@ -44,7 +44,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const currentUserId = ref(null);  // Store current user ID here
+        const currentUserId = ref(null);
 
     async function getCurrentUser() {
       try {
@@ -86,7 +86,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user })
+              body: JSON.stringify({ walker_id: currentUserId.value })
             });
             const result = await res.json();
 
