@@ -138,3 +138,8 @@ app.get('/api/walkers/summary', async function(req, res) {
     res.status(500).json({ error: 'Failed to fetch walker summary' });
   }
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
