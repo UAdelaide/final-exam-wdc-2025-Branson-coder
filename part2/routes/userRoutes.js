@@ -74,7 +74,7 @@ router.post('/api/login', async(req, res) =>{
       res.json({ role: user.role });
 
     }else{
-      res.status(401).json({})
+      res.status(401).json({ error: 'wrog login info' })
     }
   }
 });
