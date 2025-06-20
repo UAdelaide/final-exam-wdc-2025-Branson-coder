@@ -88,6 +88,7 @@
             error.value = 'Failed to load walk requests';
           }
         }
+        
         async function logout() {
           try {
             await fetch('/api/logout', {
@@ -98,7 +99,7 @@
         } catch (err) {
             console.error('Logout failed:', err);
         }
-}
+    }
 
         async function submitWalkRequest() {
           try {
