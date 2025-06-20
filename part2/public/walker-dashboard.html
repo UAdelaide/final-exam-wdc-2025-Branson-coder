@@ -45,6 +45,20 @@
         const message = ref('');
         const error = ref('');
         const user = 3;
+        const currentUserId = ref(null);  // Store current user ID here
+
+    async function getCurrentUser() {
+      try {
+        const res = await fetch('/api/users/me', {
+          credentials: 'include'  // make sure cookies/session sent
+        });
+        if (!res.ok) throw new Error('Failed to fetch user info');
+        const data = await res.json();
+        currentUserId.value = data.user_id;  // or data.id depending on your API response
+      } catch (err) {
+        console.error('Error getting current user:', err);
+      }
+    }
 
         async function logout() {
           try {
