@@ -45,24 +45,10 @@
         const message = ref('');
         const error = ref('');
         const user = 3;
-        const currentUserId = ref(null);  // Store user ID
-
-    async function getCurrentUser() {
-      try {
-        const res = await fetch('/api/users/me', {
-          credentials: 'include'
-        });
-        if (!res.ok) throw new Error('Failed to fetch user info');
-        const data = await res.json();
-        currentUserId.value = data.user_id;
-      } catch (err) {
-        console.error('Error getting current user:', err);
-      }
-    }
 
         async function logout() {
           try {
-            await fetch('/api/users/logout', {
+            await fetch('/api/logout', {
             method: 'POST',
             credentials: 'include' // Include cookies
          });
@@ -87,7 +73,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: currentUserId.value })
+              body: JSON.stringify({ walker_id: user })
             });
             const result = await res.json();
 
