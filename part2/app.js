@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-
+// Middleware
 app.use(session({
   secret: 'shumsecret',
   resave: false,
