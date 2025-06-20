@@ -43,7 +43,7 @@ router.post('/login', async(req, res) => {
       `SELECT * FROM Users WHERE username = ? AND password_hash = ?`,
       [username, password]
     );
-    console.log('Query result:', rows);
+    console.log('Query result:', users);
     if(users.length === 1){
       const user = users[0];
       req.session.user = {
