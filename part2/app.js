@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-
+const db = require('./db');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
