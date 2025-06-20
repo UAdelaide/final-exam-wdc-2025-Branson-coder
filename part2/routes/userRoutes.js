@@ -79,7 +79,7 @@ router.post('/logout', (req, res) => {
 router.get('/dogs', async(req, res) =>{
   // make sure its a user
   if(!req.session.user || req.session.user.role !== 'owner'){
-    return res.status(403).json({ error: 'Forbiddne' });
+    return res.status(403).json({ error: 'not owner' });
   }
 
   try{
@@ -90,7 +90,7 @@ router.get('/dogs', async(req, res) =>{
 
   }catch(err){
     console.error(err);
-    res.status(500).json({ error = 'DB error'})
+    res.status(500).json({ error: 'DB error' });
   }
 });
 module.exports = router;
