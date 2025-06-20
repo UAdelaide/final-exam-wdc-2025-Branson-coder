@@ -69,8 +69,9 @@ router.post('/logout', (req, res) =>{
   req.session.destroy(err =>{
     if(err){
       console.error(err);
-      return res.status(500).json({ error})
+      return res.status(500).json({ error: 'failed to log out' });
     }
-  })
+    res.clearCookie('')
+  });
 });
 module.exports = router;
