@@ -39,13 +39,13 @@ let db;
       ((SELECT dog_id FROM Dogs WHERE name='Rocky'),  '2025-06-13 14:15:00', 45, 'Downtown Square', 'completed')
     `);
 
-    console.log('Sample data inserted');
+    console.log('');
   } catch (err) {
     console.error('Error setting up sample data:', err);
   }
 })();
 
-// Route: GET /api/dogs
+
 app.get('/api/dogs', async (req, res) => {
   try {
     const [rows] = await db.execute(`
