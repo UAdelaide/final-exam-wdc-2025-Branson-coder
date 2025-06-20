@@ -85,14 +85,14 @@
         const dogs = ref([]);
 
         async function loadDogs() {
-  try {
-    const res = await fetch('/api/mydogs');
-    if (!res.ok) throw new Error('Failed to fetch dogs');
-    dogs.value = await res.json();
-  } catch (err) {
-    console.error('Could not load dogs:', err);
-  }
-}
+          try {
+            const res = await fetch('/api/mydogs');
+            if (!res.ok) throw new Error('Failed to fetch dogs');
+            dogs.value = await res.json();
+          } catch (err) {
+            console.error('Could not load dogs:', err);
+        }
+      }
          async function logout() {
           try {
             await fetch('/api/logout', {
