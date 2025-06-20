@@ -52,7 +52,10 @@
       methods: {
         async login(){
           try{
-            const res = await fetch('/api/login')
+            const res = await fetch('/api/login',{
+              method: 'POST',
+              headers: {'Content-T'}
+            })
           }
         }
       }
