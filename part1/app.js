@@ -1,5 +1,8 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
+const path = require('path'); 
+app.use(express.static(path.join(__dirname, 'public')));
+
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
 
