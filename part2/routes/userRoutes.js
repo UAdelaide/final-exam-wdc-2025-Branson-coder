@@ -69,6 +69,9 @@ router.post('/api/login', async(req, res) =>{
         username: user.username,
         role: user.role
       };
+
+
+      res.json({ role: users.role})
     }
   }
 });
