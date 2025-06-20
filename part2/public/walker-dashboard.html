@@ -46,6 +46,18 @@
         const error = ref('');
         const user = 3;
 
+        async function logout() {
+          try {
+            await fetch('/api/logout', {
+            method: 'POST',
+            credentials: 'include' // Include cookies
+         });
+            window.location.href = '/index.html'; // Redirect to the login page
+        } catch (err) {
+            console.error('Logout failed:', err);
+        }
+    }
+
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
@@ -83,7 +95,8 @@
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          logout
         };
       }
     }).mount('#app');
