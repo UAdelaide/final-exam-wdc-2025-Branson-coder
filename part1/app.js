@@ -81,4 +81,3 @@ app.get('/api/dogs', async function(req, res) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
   }
 });
-
