@@ -76,5 +76,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
-router.get('/dogs', async(req, res))
+router.get('/dogs', async(req, res) =>{
+  if(!req.session.user || req.session.user.role !=)
+});
 module.exports = router;
