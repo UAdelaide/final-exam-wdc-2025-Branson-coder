@@ -44,20 +44,18 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const currentUserId = ref(null);
 
-    async function getCurrentUser() {
-      try {
-        const res = await fetch('/api/users/me', {
-          credentials: 'include'
-        });
-        if (!res.ok) throw new Error('Failed to fetch user info');
-        const data = await res.json();
-        currentUserId.value = data.user_id;
-      } catch (err) {
-        console.error('Error getting current user:', err);
-      }
-    }
+        async function getCurrentUser() {
+        try {
+        const res = await fetch('/api/users/me', { credentials: 'include' });
+    if (!res.ok) throw new Error('Failed to fetch user info');
+    const userData = await res.json();
+    return userData;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
 
         async function logout() {
           try {
