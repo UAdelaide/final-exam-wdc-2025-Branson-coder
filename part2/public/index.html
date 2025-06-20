@@ -13,7 +13,8 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
-    <table class="table table-striped">
+    <h2 class="mt-5">All Dogs in Database</h2>
+  <table v-if="dogs.length" class="table table-bordered">
     <thead>
       <tr>
         <th>Photo</th>
@@ -24,13 +25,14 @@
     </thead>
     <tbody>
       <tr v-for="dog in dogs" :key="dog.dog_name">
-        <td><img :src="dog.photoUrl" alt="Dog photo" style="width:100px; height:auto;"></td>
+        <td><img :src="dog.photoUrl" alt="dog photo" style="width: 100px; height: auto;"></td>
         <td>{{ dog.dog_name }}</td>
         <td>{{ dog.size }}</td>
         <td>{{ dog.owner_username }}</td>
       </tr>
     </tbody>
   </table>
+  <p v-else>No dogs found.</p>
 
     <div class="row justify-content-center mt-4">
       <div class="col-md-6">
