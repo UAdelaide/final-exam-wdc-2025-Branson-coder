@@ -24,7 +24,7 @@ let db;
         });
 
         await db.execute(`
-            
-            `)
+            INSERT IGNORE INTO Users (username, email, password_hash, role) VALUES
+        `)
     }
 })
