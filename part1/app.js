@@ -61,5 +61,7 @@ let db;
         (2, (SELECT user_id FROM Users WHERE username='emilywalker'), 'accepted');
     `);
 
+    }catch(err){
+        console
     }
 })
