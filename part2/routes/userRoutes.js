@@ -71,7 +71,10 @@ router.post('/api/login', async(req, res) =>{
       };
 
 
-      res.json({ role: users.role})
+      res.json({ role: user.role });
+
+    }else{
+      res.status(401).json({})
     }
   }
 });
