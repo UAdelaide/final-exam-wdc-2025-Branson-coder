@@ -12,3 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 let db;
+
+async function initialiseDB(){
+    try{}
+}
