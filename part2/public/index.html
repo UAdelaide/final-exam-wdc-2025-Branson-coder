@@ -50,7 +50,11 @@
         };
       },
       methods: {
-        async login()
+        async login(){
+          try{
+            const res = await fetch('/api/login')
+          }
+        }
       }
     }).mount('#app');
   </script>
