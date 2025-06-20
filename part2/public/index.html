@@ -48,8 +48,10 @@
         };
       },
       methods: {
+        //called when the login button is submitted
         async login(){
           try{
+            // sends a 
             const res = await fetch('/api/login',{
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
