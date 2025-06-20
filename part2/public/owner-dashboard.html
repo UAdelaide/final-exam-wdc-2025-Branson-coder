@@ -86,7 +86,7 @@
 
         async function loadDogs() {
           try {
-            const res = await fetch('/api/mydogs');
+            const res = await fetch('/api/dogs');
             if (!res.ok) throw new Error('Failed to fetch dogs');
             dogs.value = await res.json();
           } catch (err) {
@@ -141,6 +141,7 @@
 
         onMounted(() => {
           loadWalks();
+          loadDogs();
         });
 
         return {
