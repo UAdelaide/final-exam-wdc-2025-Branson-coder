@@ -13,7 +13,24 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
-    
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Owner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="dog in dogs" :key="dog.dog_name">
+        <td><img :src="dog.photoUrl" alt="Dog photo" style="width:100px; height:auto;"></td>
+        <td>{{ dog.dog_name }}</td>
+        <td>{{ dog.size }}</td>
+        <td>{{ dog.owner_username }}</td>
+      </tr>
+    </tbody>
+  </table>
 
     <div class="row justify-content-center mt-4">
       <div class="col-md-6">
