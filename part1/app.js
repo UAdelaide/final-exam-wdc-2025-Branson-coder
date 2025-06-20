@@ -102,3 +102,39 @@ app.get('/api/walkrequests/open', async function(req, res) {
     res.status(500).json({ error: 'Failed to fetch open walk requests' });
   }
 });
+
+app.get('/api/walkers/summary', async function(req, res) {
+  try {
+    var [walkers] = await db.execute(`
+      SELECT user_id, username FROM Users WHERE role = 'walker'
+    `);
+
+    var results = await Promise.all(walkers.map(async function(walker) {
+      var [[totalRatings]] = await db.execute(`
+        SELECT COUNT(*) AS count FROM WalkRatings WHERE walker_id = ?
+      `, [walker.user_id]);
+
+      var [[avgRating]] = await db.execute(`
+        SELECT AVG(rating) AS avg FROM WalkRatings WHERE walker_id = ?
+      `, [walker.user_id]);
+
+      var [[completedWalks]] = await db.execute(`
+        SELECT COUNT(*) AS count FROM WalkApplications wa
+        JOIN WalkRequests wr ON wa.request_id = wr.request_id
+        WHERE wa.walker_id = ? AND wa.status = 'accepted' AND wr.status = 'completed'
+      `, [walker.user_id]);
+
+      return {
+        walker_username: walker.username,
+        total_ratings: totalRatings.count,
+        average_rating: avgRating.avg !== null ? parseFloat(avgRating.avg.toFixed(2)) : null,
+        completed_walks: completedWalks.count
+      };
+    }));
+
+    res.json(results);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch walker summary' });
+  }
+});
