@@ -136,4 +136,5 @@ app.get('/api/walkers/summary', async function(req, res) {
     res.status(500).json({ error: 'Failed to fetch walker summary' });
   }
 });
+app.use(express.static('public'));
 
