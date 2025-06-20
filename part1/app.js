@@ -13,3 +13,4 @@ app.use(cookieParser());
 
 let db;
 
+(async () =>)
