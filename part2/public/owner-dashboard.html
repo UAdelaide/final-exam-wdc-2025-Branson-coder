@@ -10,7 +10,7 @@
 <body class="bg-light">
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-primary">Owner Dashboard</h1>
-    
+
     <!-- Walk request form -->
     <div class="card mb-4">
       <div class="card-header bg-primary text-white">
@@ -88,6 +88,17 @@
             error.value = 'Failed to load walk requests';
           }
         }
+        async function logout() {
+          try {
+    await fetch('/api/logout', {
+      method: 'POST',
+      credentials: 'include' // Include cookies
+    });
+    window.location.href = '/'; // Redirect to the login page
+  } catch (err) {
+    console.error('Logout failed:', err);
+  }
+}
 
         async function submitWalkRequest() {
           try {
