@@ -54,7 +54,7 @@
         });
         if (!res.ok) throw new Error('Failed to fetch user info');
         const data = await res.json();
-        currentUserId.value = data.user_id; 
+        currentUserId.value = data.user_id;
       } catch (err) {
         console.error('Error getting current user:', err);
       }
@@ -87,7 +87,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user })
+              body: JSON.stringify({ walker_id: : currentUserId.value })
             });
             const result = await res.json();
 
