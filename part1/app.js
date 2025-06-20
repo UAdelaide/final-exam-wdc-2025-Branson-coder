@@ -49,5 +49,6 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name='Luna'),   '2025-06-12 18:30:00', 30, 'Botanic Gardens', 'cancelled'),
         ((SELECT dog_id FROM Dogs WHERE name='Rocky'),  '2025-06-13 14:15:00', 45, 'Downtown Square', 'completed');
     `);
+    
     }
 })
