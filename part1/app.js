@@ -137,4 +137,5 @@ app.get('/api/walkers/summary', async function(req, res) {
   }
 });
 app.use(express.static('public'));
+module.exports = app;
 
