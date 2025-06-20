@@ -10,6 +10,7 @@
 <body class="bg-light">
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-primary">Owner Dashboard</h1>
+    <button class="btn btn-danger mb-3" @click="logout">Logout</button>
 
     <!-- Walk request form -->
     <div class="card mb-4">
@@ -88,7 +89,7 @@
             error.value = 'Failed to load walk requests';
           }
         }
-        
+
         async function logout() {
           try {
             await fetch('/api/logout', {
