@@ -66,8 +66,9 @@ router.post('/api/login', async(req, res) =>{
       const user = users[0];
       req.session.user = {
         id: user.user_id,
-        username: 
-      }
+        username: user.username,
+        role: user.role
+      };
     }
   }
 });
