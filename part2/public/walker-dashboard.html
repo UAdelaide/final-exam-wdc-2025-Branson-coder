@@ -44,7 +44,20 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = 3;
+        const currentUserId = ref(null);  // Store current user ID here
+
+    async function getCurrentUser() {
+      try {
+        const res = await fetch('/api/users/me', {
+          credentials: 'include'
+        });
+        if (!res.ok) throw new Error('Failed to fetch user info');
+        const data = await res.json();
+        currentUserId.value = data.user_id;
+      } catch (err) {
+        console.error('Error getting current user:', err);
+      }
+    }
 
         async function logout() {
           try {
