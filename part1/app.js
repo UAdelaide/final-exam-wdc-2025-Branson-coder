@@ -13,4 +13,8 @@ app.use(cookieParser());
 
 let db;
 
-(async () =>)
+(async () => {
+    try{
+        const connection = await
+    }
+})
