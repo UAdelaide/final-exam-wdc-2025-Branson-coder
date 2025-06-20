@@ -83,7 +83,9 @@ router.get('/dogs', async(req, res) =>{
   }
 
   try{
-    const[dogs] = await
+    const[dogs] = await db.execute(
+      'SELECT dog_id, name FROM Dogs where'
+    )
   }
 });
 module.exports = router;
