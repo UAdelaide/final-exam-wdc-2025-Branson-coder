@@ -87,7 +87,10 @@ router.get('/dogs', async(req, res) =>{
       'SELECT dog_id, name FROM Dogs WHERE ownder_id = ?',
       [req.session.user.id]
     );
-    
+
+  }catch(err){
+    console.error(err);
+    res.status(500)
   }
 });
 module.exports = router;
