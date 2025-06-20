@@ -57,12 +57,13 @@ router.post('/login', async (req, res) => {
 
 router.post('/api/login', async(req, res) => {
   const { username, password } = req.body;
-  
+
   try{
     const [users] = await db.execute(
       `SELECT * FROM Users WHERE username = ? AND password_hash = ?`,
       [username, password]
     );
+    console.log('Query result:', rows);
     if(users.length === 1){
       const user = users[0];
       req.session.user = {
