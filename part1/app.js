@@ -1,8 +1,6 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
-const path = require('path'); 
-app.use(express.static(path.join(__dirname, 'public')));
-
+const path = require('path');
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
 
@@ -140,6 +138,6 @@ app.get('/api/walkers/summary', async function(req, res) {
   }
 });
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 module.exports = app;
 
