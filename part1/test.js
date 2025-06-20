@@ -6,7 +6,7 @@ const mysql = require('mysql2/promise');
     const db = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
-      password: 'test',// <-- make sure this matches your real password!
+      password: 'test',
       database: 'DogWalkService'
     });
     console.log('Connection success!');
