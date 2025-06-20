@@ -30,6 +30,7 @@
         <img :src="dogUrl" />
   </div>
   <script>
+       const { createApp, ref, onMounted } = Vue;
       createApp({
     setup() {
       const dogUrl = ref('');
