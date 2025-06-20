@@ -86,10 +86,9 @@
         const dogs = ref([]);
 
         async function loadDogs() {
-          method:
-           credentials: 'include'
           try {
             const res = await fetch('/api/dogs');
+           credentials: 'include'
             if (!res.ok) throw new Error('Failed to fetch dogs');
             dogs.value = await res.json();
           } catch (err) {
