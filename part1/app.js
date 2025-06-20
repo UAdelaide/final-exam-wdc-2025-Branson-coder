@@ -49,6 +49,17 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name='Luna'),   '2025-06-12 18:30:00', 30, 'Botanic Gardens', 'cancelled'),
         ((SELECT dog_id FROM Dogs WHERE name='Rocky'),  '2025-06-13 14:15:00', 45, 'Downtown Square', 'completed');
     `);
-    
+       await db.execute(`
+      INSERT IGNORE INTO WalkRatings (request_id, walker_id, owner_id, rating, comments) VALUES
+        (1, (SELECT user_id FROM Users WHERE username='bobwalker'), (SELECT user_id FROM Users WHERE username='alice123'), 5, 'Great walker!'),
+        (2, (SELECT user_id FROM Users WHERE username='emilywalker'), (SELECT user_id FROM Users WHERE username='carol123'), 4, 'Good job.');
+    `);
+
+    await db.execute(`
+      INSERT IGNORE INTO WalkApplications (request_id, walker_id, status) VALUES
+        (1, (SELECT user_id FROM Users WHERE username='bobwalker'), 'accepted'),
+        (2, (SELECT user_id FROM Users WHERE username='emilywalker'), 'accepted');
+    `);
+
     }
 })
