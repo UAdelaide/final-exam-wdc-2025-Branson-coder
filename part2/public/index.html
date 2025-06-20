@@ -101,14 +101,14 @@
             console.error(err);
             this.error = 'server err';
           }
-        }
+        },
         async loadDogs() {
-      try {
-        const res = await fetch('/api/dogs');
-        if (!res.ok) throw new Error('Failed to fetch dogs');
-        const dogsData = await res.json();
+        try {
+          const res = await fetch('/api/dogs');
+          if (!res.ok) throw new Error('Failed to fetch dogs');
+          const dogsData = await res.json();
 
-        // Fetch random photo for each dog
+
         for (const dog of dogsData) {
           try {
             const photoRes = await fetch('https://dog.ceo/api/breeds/image/random');
@@ -132,7 +132,6 @@
   mounted() {
     this.loadDogs();
   }
-      }
 
     }).mount('#app');
   </script>
