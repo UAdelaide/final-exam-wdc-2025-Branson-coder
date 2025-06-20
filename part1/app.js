@@ -62,6 +62,6 @@ let db;
     `);
 
     }catch(err){
-        console
+        console.error('ERror with setting up test db', err);
     }
 })
