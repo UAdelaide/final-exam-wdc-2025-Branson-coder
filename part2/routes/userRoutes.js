@@ -90,7 +90,7 @@ router.get('/dogs', async(req, res) =>{
 
   }catch(err){
     console.error(err);
-    res.status(500)
+    res.status(500).json({ error = 'DB error'})
   }
 });
 module.exports = router;
