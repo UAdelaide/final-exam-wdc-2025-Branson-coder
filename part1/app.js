@@ -20,7 +20,9 @@ let db;
             host: 'localhost',
             user: 'root',
             password: 'test',
-            database: 'DogWalk'
-        })
+            database: 'DogWalkService'
+        });
+
+        await db.execute
     }
 })
